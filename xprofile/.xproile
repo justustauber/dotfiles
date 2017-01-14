@@ -1,0 +1,26 @@
+# autostart applications
+redshift-gtk &
+nextcloud &
+nm-applet &
+volumeicon &
+urxvt &
+tilda --hidden &
+clipit &
+
+thunderbird &
+firefox &
+syncthing-gtk &
+#syncthing &
+cbatticon &
+
+# disable beep sound
+xset b off &
+
+# keyboard layout
+setxkbmap de us
+setxkbmap -option caps:ctrl_modifier
+
+# deamon mode
+urxvtd -q -f -o &
+pcmanfm -d &
+gnome-keyring-daemon &

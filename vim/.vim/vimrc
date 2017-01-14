@@ -1,0 +1,97 @@
+inoremap jj <ESC>
+let mapleader = "\<Space>"
+vnoremap . :norm.<CR>
+
+map <C-n> :NERDTreeToggle<CR>
+"Keybindings
+
+" packages
+"packadd! matchit
+"comment
+
+
+syntax enable
+set hlsearch    	 "hl after executing search or :/\v ...:
+set ignorecase  	 "case-insensetive search
+set smartcase   	 "addition to igorecase
+set nocompatible	 "show incomplete command
+set incsearch   	 "hl while typing search
+set ruler       	 "show ruler
+set scrolloff=3 	 "lines before and after cursor
+set showcmd     	 "show command while typing
+set showmode    	 "show Insert,Visual.. modes
+set cursorline  	 "underline current line
+set showmatch   	 "show mathcing brackets/parents
+set autoindent  	 "keep indent after linebreak
+set copyindent  	 "keep indent while copying
+set linebreak   	 "indicate linebreak
+set laststatus=2         "always show statusline
+set background=dark
+set history=500	 "remember command lines
+set encoding=utf-8	 "set encoding
+set backspace=indent,eol,start		 "delete over linebreack
+set lcs=tab:>-,eol:<,nbsp:%		 "visual tab,eol
+set whichwrap=b,s,<,>,[,]		 "Backspace over Linebreak
+set relativenumber
+set number
+set wrap
+set list
+set shell=/bin/zsh
+set visualbell
+"set expandtab "spaces instead of tabs
+"set shiftwidth=4 "1 tab=4 spaces
+"set tabstop=4 
+
+        
+set noundofile "undoing over last saving
+
+"disable mouse and arrow keys
+"set mouse=a
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
+"Control shortcuts
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+"Vundle
+filetype off "required
+filetype plugin indent on "required
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-surround' "add surround
+Plugin 'tpope/vim-repeat' "add repeat action to vim-surround
+Plugin 'scrooloose/nerdtree' "Filebrowser
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
+call vundle#end()
+
+"Example:
+" original repos on github
+" Bundle 'tpope/vim-fugitive'
+" Bundle 'Lokaltog/vim-easymotion'
+" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Bundle 'tpope/vim-rails.git'
+" vim-scripts repos
+" Bundle 'L9'
+" Bundle 'FuzzyFinder'
+" non github repos
+" Bundle 'git://git.wincent.com/command-t.git'
+"
+"Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+"
+"see :h vundle for more details or wiki for FAQ
+"NOTE: comments after Bundle command are not allowed..
