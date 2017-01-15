@@ -73,6 +73,7 @@ Plugin 'tpope/vim-repeat' "add repeat action to vim-surround
 Plugin 'scrooloose/nerdtree' "Filebrowser
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'davidhalter/jedi-vim'
 call vundle#end()
 
 "Example:
