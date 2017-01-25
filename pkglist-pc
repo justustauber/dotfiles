@@ -6,6 +6,7 @@ bash
 binutils
 bison
 bzip2
+chromium
 cmus
 colordiff
 conky
@@ -114,6 +115,7 @@ rxvt-unicode
 s-nail
 scrot
 seahorse
+seamonkey
 sed
 shadow
 stow
