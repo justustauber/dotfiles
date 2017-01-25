@@ -3,7 +3,7 @@
 #(Mod1=Alt; Mod4=Super)
 set $mod Mod4
 set $terminal urxvt 
-set $lock i3lock -c 00000f
+set $lock i3lock-fancy
 
 set $ws1 "1"
 set $ws2 "2"
@@ -216,7 +216,7 @@ bindsym XF86MonBrightnessDown exec /home/user/.config/i3/bl_down.sh
 
 bindsym XF86MyComputer exec $lock
 
-exec --no-startup-id xautolock -time 1 -locker i3lock
+exec --no-startup-id xautolock -time 1 -locker i3lock-fancy &
 
 #screenshot mode
 bindsym $mod+Print mode $screenshot_mode
