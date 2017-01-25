@@ -44,6 +44,6 @@ alias config="vim /home/user/dotfiles/i3/.config/i3/config && gitu"
 alias pkglist-pc="pacman -Qqen > /home/user/dotfiles/pkglist-pc && gitu"
 alias pkglist-lap="pacman -Qqen > /home/user/dotfiles/pkglist-lap && gitu"
 alias system-config="sudo cp /etc/fstab /home/user/.config/system-config && sudo cp /etc/grub.d/40_custom /home/user/.config/system-config && sudo cp /etc/mkinitcpio.conf /home/user/.config/system-config && sudo cp /etc/pacman.conf /home/user/.config/system-config && sudo cp -r /etc/udev/rules.d /home/user/.config/system-config/ && gitu"
-alias i2prouter="/home/user/Download/i2p/i2prouter $1"
+alias i2prouter="/home/user/Downloads/i2p/i2prouter $1"
 alias unicode="echo  ±  ➦ ✘ ⚡ "
 
