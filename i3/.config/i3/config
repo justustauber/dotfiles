@@ -216,7 +216,7 @@ bindsym XF86MonBrightnessDown exec /home/user/.config/i3/bl_down.sh
 
 bindsym XF86MyComputer exec $lock
 
-exec --no-startup-id xautolock -time 10 -locker $lock 
+exec --no-startup-id xautolock -time 1 -locker i3lock
 
 #screenshot mode
 bindsym $mod+Print mode $screenshot_mode
