@@ -1,18 +1,31 @@
-rofi.font: DejaVu Sans Mono 8
-rofi.lines: 10
-!rofi.width: 28
-!!rofi.hide-scrollbar: true
-!!rofi.color-window: #242321, #e0e2e0
-!!rofi.color-normal: #242321, #e0e2e0, #242321, #dc8b92, #ffffff
-!!rofi.color-active: #242321, #e0e2e0, #242321, #dc8b92, #e0e2e0
-!!rofi.color-urgent: #242321, #ffa724, #242321, #dc8b92, #e0e2e0
-!rofi.color-enabled: true
-!rofi.color-window: #393939, #393939, #268bd2
-!rofi.color-normal: #393939, #ffffff, #393939, #268bd2, #ffffff
-!rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
-!rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
-!! Separator style (none, dash, solid)
+!-------------------------------------------------------------------------------
+! Rofi color theme
+!
+! Based on the Gruvbox color scheme for Vim by morhetz
+! https://github.com/morhetz/gruvbox
+!
+! File: gruvbox-dark.theme
+! Desc: Gruvbox dark color theme for Rofi
+! Author: bardisty <b@bah.im>
+! Source: https://github.com/bardisty/gruvbox-rofi
+! Modified: Sat Oct 22 2016 03:11:40 PDT -0700
+!-------------------------------------------------------------------------------
+
+! Enable the extended coloring options
+rofi.color-enabled: true
+
+!                  bg       border   separator
+rofi.color-window: #282828, #a89984, #a89984
+
+!                  bg       fg       bg-alt   hl-bg    hl-fg
+rofi.color-normal: #282828, #ebdbb2, #32302f, #665c54, #fbf1c7
+rofi.color-active: #d79921, #282828, #d79921, #fabd2f, #282828
+rofi.color-urgent: #cc241d, #282828, #cc241d, #fb4934, #282828
 rofi.separator-style: dash
+
+
+
+
 
 URxvt.font: xft:DejaVu Sans Mono for Powerline:size=8
 !URxvt.letterSpace: -1
