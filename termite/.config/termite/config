@@ -1,5 +1,6 @@
 [options]
 font = DejaVu Sans Mono 10
+cursor_blink = off
 
 [colors]
 # hard contrast: background = #1d2021
