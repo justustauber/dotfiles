@@ -171,7 +171,7 @@ bar {
         status_command /home/user/.config/i3/conky-i3bar
         #status_command i3blocks
 	tray_padding 0
-	# $i3-theme-window
+	# $i3-theme-bar
 }
 
 
