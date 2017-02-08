@@ -2,7 +2,7 @@
 
 #(Mod1=Alt; Mod4=Super)
 set $mod Mod4
-set $terminal urxvt 
+set $terminal termite
 set $lock i3lock-wrapper
 exec --no-startup-id xautolock -time 15 -locker $lock &
 
