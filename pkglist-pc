@@ -54,6 +54,7 @@ gvfs
 gvfs-mtp
 gzip
 htop
+i3blocks
 i3status
 inetutils
 intel-ucode
@@ -125,7 +126,6 @@ s-nail
 screenfetch
 scrot
 seahorse
-seamonkey
 sed
 shadow
 stow
