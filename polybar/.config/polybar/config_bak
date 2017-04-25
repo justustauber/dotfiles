@@ -10,70 +10,61 @@
 [colors]
 ;background = ${xrdb:color0:#222}
 background = #222
-background-alt = #333
+background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
-primary = #D3D3D3
+primary = #ffb52a
 secondary = #e60053
-alert = #8B0000
+alert = #bd2c40
 
-[bar/bar1]
-monitor = eDP
-monitor-strict = false
-bottom = true
+[bar/example]
+;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 20
-;offset-x = 5%
+height = 27
+;offset-x = 1%
 ;offset-y = 1%
+radius = 6.0
+fixed-center = false
+
+background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 1
-line-color = #D3D3D3
+line-size = 3
+line-color = #f00
 
-;border-size = 5
-border-left-size = 0
-border-right-size = 0
-border-top-size = 1
-border-bottom-size = 0
-;border-color = #555
+border-size = 4
+border-color = #00000000
 
 padding-left = 0
-padding-right = 5
+padding-right = 2
 
-module-margin = 2.5
-;module-margin-left = 1
-;module-margin-right = 2
+module-margin-left = 1
+module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;2
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;2
-font-2 = siji:pixelsize=10;2
+font-0 = fixed:pixelsize=10;1
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = siji:pixelsize=10;1
 
-modules-left = i3
-modules-center = mpd 
-modules-right = filesystem wlan eth battery date powermenu backlight-acpi volume 
-;xkeyboard  cpu memory temperature xbacklight xwindow
-
-dim-value = 0.7
-
-locale = en_US.UTF-8
+modules-left = bspwm i3
+modules-center = mpd
+modules-right = filesystem xbacklight volume xkeyboard memory cpu wlan eth battery temperature date powermenu
 
 tray-position = right
-tray-padding = 3
-tray-maxsize = 18
-;tray-background = #111
+tray-padding = 2
 ;tray-transparent = true
+;tray-background = #0063ff
 
 ;wm-restack = bspwm
-wm-restack = i3
-override-redirect = false
-enable-ipc = false
+;wm-restack = i3
+
+;override-redirect = true
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
 
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
 
 [module/xwindow]
 type = internal/xwindow
@@ -97,13 +88,11 @@ label-indicator-underline = ${colors.secondary}
 
 [module/filesystem]
 type = internal/fs
-interval = 10
-fixed-values = true
-;format-mounted = <label-mounted><bar-free>
+interval = 25
 
 mount-0 = /
-mount-1 = /home
-label-mounted = %free% (%percentage_free%%)
+
+label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
@@ -131,12 +120,11 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
-reverse-scroll = false
 
 ; Only show workspaces on the same output as the bar
-pin-workspaces = true
+;pin-workspaces = true
 
-label-mode-padding = 0
+label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
@@ -178,7 +166,7 @@ label-song-ellipsis = true
 type = internal/xbacklight
 
 format = <label> <bar>
-label = %percentage%%
+label = BL
 
 bar-width = 10
 bar-indicator = |
@@ -194,7 +182,7 @@ bar-empty-foreground = ${colors.foreground-alt}
 [module/backlight-acpi]
 inherit = module/xbacklight
 type = internal/backlight
-card = radeon_bl0
+card = intel_backlight
 
 [module/cpu]
 type = internal/cpu
@@ -215,7 +203,7 @@ label = %percentage_used%%
 [module/wlan]
 type = internal/network
 interface = wlp2s0
-interval = 5.0
+interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
@@ -224,7 +212,7 @@ label-connected = %essid%
 format-disconnected =
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
-label-disconnected = %ifname% disconnected
+;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
 ramp-signal-0 = 
@@ -252,13 +240,13 @@ format-disconnected =
 
 [module/date]
 type = internal/date
-interval = 60
+interval = 5
 
-date = "%Y-%m-%d %a KW%V"
+date =
 date-alt = " %Y-%m-%d"
 
 time = %H:%M
-time-alt = %H:%M
+time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
@@ -270,7 +258,7 @@ label = %date% %time%
 type = internal/volume
 
 format-volume = <label-volume> <bar-volume>
-label-volume = %percentage%%
+label-volume = VOL
 label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = " "
@@ -285,7 +273,7 @@ bar-volume-foreground-3 = #55aa55
 bar-volume-foreground-4 = #55aa55
 bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = true
+bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
 bar-volume-fill = ─
@@ -299,28 +287,20 @@ type = internal/battery
 battery = BAT0
 adapter = AC
 full-at = 98
-time-format = %H:%M
-poll-interval =5
 
-label-charging = %percentage%% (%time%) 
-label-discharging = %percentage%% (%time%)
-
-format-charging = <label-charging>
+format-charging = <animation-charging> <label-charging>
 format-charging-underline = #ffb52a
 
-format-discharging = <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.foreground-alt}
 
 animation-charging-0 = 
@@ -375,7 +355,6 @@ menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
-
 [settings]
 screenchange-reload = true
 ;compositing-background = xor
@@ -384,7 +363,7 @@ screenchange-reload = true
 ;compositing-border = over
 
 [global/wm]
-margin-top = 0
-margin-bottom = 0
+margin-top = 5
+margin-bottom = 5
 
 ; vim:ft=dosini
