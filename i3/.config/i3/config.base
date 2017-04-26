@@ -26,7 +26,7 @@ bindsym $mod+F6 exec chromium
 bindsym $mod+F8 exec tor-browser-en
 bindsym $mod+F9 exec syncthing-gtk
 
-new_window pixel 1
+new_window pixel 3
 for_window [class=(?i)terminator] border pixel 1
 for_window [class=(?i)firefox] border pixel 1
 for_window [class=(?i)thunderbird] border pixel 0
@@ -54,7 +54,7 @@ focus_on_window_activation focus
 # Cycle through border styles with mod+o
 bindsym $mod+o border toggle
 
-font pango:DejaVu Sans Mono for powerline 8
+font pango:DejaVu Sans Mono for powerline 6
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -252,8 +252,8 @@ mode "$mode_gaps_outer" {
 }
 
 
-gaps inner 10
-gaps outer 0
+#gaps inner 10
+#gaps outer 0
 #smart_gaps off
 smart_borders on
 
