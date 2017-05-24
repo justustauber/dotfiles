@@ -19,7 +19,7 @@ secondary = #e60053
 alert = #8B0000
 
 [bar/bar1]
-monitor = eDP
+;monitor = eDP, VGA-0
 monitor-strict = false
 bottom = true
 width = 100%
@@ -45,7 +45,7 @@ module-margin = 2.5
 ;module-margin-left = 1
 ;module-margin-right = 2
 
-font-0 = fixed:pixelsize=6;2
+font-0 = Roboto:pixelsize=8;2
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;2
 font-2 = siji:pixelsize=10;2
 

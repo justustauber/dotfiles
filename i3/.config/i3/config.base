@@ -187,7 +187,7 @@ bindsym XF86MyComputer exec $lock
 bindsym $mod+Print mode $screenshot_mode
 set $screenshot_mode "(Print) whole screen, (s)elect/size window, (u)focused window; (Esc or Enter to Exit)"
 mode $screenshot_mode {
-bindsym Print --release exec --no-startup-id scrot /home/user/cloud/nextcloud/clientsync/bilder/screenshots/%F_%H:%M:%S.png -q 100, mode "default"
+bindsym p --release exec --no-startup-id scrot /home/user/cloud/nextcloud/clientsync/bilder/screenshots/%F_%H:%M:%S.png -q 100, mode "default"
 bindsym s --release exec --no-startup-id scrot /home/user/cloud/nextcloud/clientsync/bilder/screenshots/%F_%H:%M:%S.png -q 100 -s , mode "default"
 bindsym u --release exec --no-startup-id scrot /home/user/cloud/nextcloud/clientsync/bilder/screenshots/%F_%H:%M:%S.png -q 100 -u , mode "default"
 bindsym Escape mode "default"
