@@ -45,7 +45,17 @@ assign [class="Tor Browser"] $ws8
 hide_edge_borders none
 workspace_auto_back_and_forth yes
 bindsym $mod+b workspace back_and_forth
+bindsym $mod+Tab workspace back_and_forth
 default_orientation horizontal
+
+#SCRATCHPAD
+#exec --no-startup-id $terminal --name=dropdown -e tmux
+#for_window [instance="dropdown"] floating enable;
+#for_window [instance="dropdown"] move scratchpad; [instance="dropdown"] scratchpad show; move scratchpad
+#bindsym $mod+i [instance="dropdown"] scratchpad show
+
+# Start Ranger
+bindsym $mod+Shift+f exec $terminal -e ranger
 
 # Focus throug keyboard only
 focus_follows_mouse yes
@@ -146,6 +156,11 @@ bindsym $mod+Shift+r restart
 # exit i3 
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'exit i3?' -b 'Yes' 'i3-msg exit'"
 
+# resize on fly
+bindsym $mod+Shift+y resize shrink width 5 px or 5 ppt
+bindsym $mod+Shift+u resize grow height 5 px or 5 ppt
+bindsym $mod+Shift+i resize shrink height 5 px or 5 ppt
+bindsym $mod+Shift+o resize grow width 5 px or 5 ppt
 
 # resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"

@@ -46,7 +46,7 @@ set visualbell
 set noundofile "undoing over last saving
 
 "disable mouse and arrow keys
-"set mouse=a
+set mouse=a
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
@@ -61,6 +61,31 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+"autocompile
+"autocmd Filetype tex setl updatetime=1
+"nmap <F12> :LLPStartPreview<cr>
+"let g:livepreview_previewer = 'mupdf'
+"autocmd BufWritePost *.tex Dispatch! latexmk -pdf -pvc main.tex
+"let g:vimtex_latexmk_options ='-pvc' 
+let g:vimtex_compiler_latexmk = {
+     \ 'background' : 1,
+     \ 'build_dir' : '',
+     \ 'callback' : 1,
+     \ 'continuous' : 1,
+     \ 'executable' : 'latexmk',
+     \ 'options' : [
+     \   '-pdf',
+     \   '-verbose',
+     \   '-file-line-error',
+     \   '-synctex=1',
+     \   '-interaction=nonstopmode',
+     \ ],
+\}
+
+let g:vimtex_viewer_general_viewer = 'mupdf'
+
+
 
 "Vundle
 filetype off "required
@@ -77,6 +102,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'morhetz/gruvbox'
+"Plugin 'xuhdev/vim-latex-live-preview'
+Plugin 'lervag/vimtex'
 call vundle#end()
 colorscheme gruvbox
 
