@@ -47,4 +47,4 @@ alias system-config="sudo cp /etc/fstab /home/user/.config/system-config && sudo
 alias i2prouter="/home/user/Downloads/i2p/i2prouter $1"
 alias unicode="echo  ±  ➦ ✘ ⚡ "
 alias wlan-fix="iwconfig wlp2s0 rate 54M"
-
+alias matlab_bin="/home/user/bin/bin/glnxa64/MATLAB"

@@ -1,129 +1,80 @@
 inoremap jj <ESC>
-let mapleader = "\<Space>"
-vnoremap . :norm.<CR>
-
-map <C-n> :NERDTreeToggle<CR>
-"Keybindings
-
-" packages
-"packadd! matchit
-"comment
-
-
-syntax enable
-set hlsearch    	 "hl after executing search or :/\v ...:
-set ignorecase  	 "case-insensetive search
-set smartcase   	 "addition to igorecase
-set nocompatible	 "show incomplete command
-set incsearch   	 "hl while typing search
-set ruler       	 "show ruler
-set scrolloff=3 	 "lines before and after cursor
-set showcmd     	 "show command while typing
-set showmode    	 "show Insert,Visual.. modes
-set cursorline  	 "underline current line
-set showmatch   	 "show mathcing brackets/parents
-set autoindent  	 "keep indent after linebreak
-set copyindent  	 "keep indent while copying
-set linebreak   	 "indicate linebreak
-set laststatus=2         "always show statusline
-set background=dark
-set history=500	 "remember command lines
-set encoding=utf-8	 "set encoding
-set backspace=indent,eol,start		 "delete over linebreack
-set lcs=tab:>-,eol:<,nbsp:%		 "visual tab,eol
-set whichwrap=b,s,<,>,[,]		 "Backspace over Linebreak
-set relativenumber
-set number
-set wrap
-set list
-set shell=/bin/zsh
-set visualbell
-"set expandtab "spaces instead of tabs
-"set shiftwidth=4 "1 tab=4 spaces
-"set tabstop=4 
-
-        
-set noundofile "undoing over last saving
-
-"disable mouse and arrow keys
+filetype off
+set nocompatible              " be iMproved, required
+syntax on
 set mouse=a
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
+"setlocal spell spelllang=en_us
+set laststatus=2         "always show statusline
+let mapleader = "\<Space>"
 
-"Control shortcuts
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-"autocompile
-"autocmd Filetype tex setl updatetime=1
-"nmap <F12> :LLPStartPreview<cr>
-"let g:livepreview_previewer = 'mupdf'
-"autocmd BufWritePost *.tex Dispatch! latexmk -pdf -pvc main.tex
-"let g:vimtex_latexmk_options ='-pvc' 
-let g:vimtex_compiler_latexmk = {
-     \ 'background' : 1,
-     \ 'build_dir' : '',
-     \ 'callback' : 1,
-     \ 'continuous' : 1,
-     \ 'executable' : 'latexmk',
-     \ 'options' : [
-     \   '-pdf',
-     \   '-verbose',
-     \   '-file-line-error',
-     \   '-synctex=1',
-     \   '-interaction=nonstopmode',
-     \ ],
-\}
-
-let g:vimtex_viewer_general_viewer = 'mupdf'
+" let g:vimtex_view_general_viewer = 'mupdf'
+" let g:neocomplete#enable_at_startup = 1
+let g:airline_theme='tomorrow'
 
 
-
-"Vundle
-filetype off "required
-filetype plugin indent on "required
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-surround' "add surround
-Plugin 'tpope/vim-repeat' "add repeat action to vim-surround
-Plugin 'scrooloose/nerdtree' "Filebrowser
-"Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'lervag/vimtex'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'morhetz/gruvbox'
-"Plugin 'xuhdev/vim-latex-live-preview'
-Plugin 'lervag/vimtex'
-call vundle#end()
-colorscheme gruvbox
+Plugin 'valloric/youcompleteme'
+"Plugin 'Shougo/neocomplete.vim'
 
-"Example:
-" original repos on github
-" Bundle 'tpope/vim-fugitive'
-" Bundle 'Lokaltog/vim-easymotion'
-" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Bundle 'tpope/vim-rails.git'
-" vim-scripts repos
-" Bundle 'L9'
-" Bundle 'FuzzyFinder'
-" non github repos
-" Bundle 'git://git.wincent.com/command-t.git'
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+"Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+"Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
 "
-"Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
-"see :h vundle for more details or wiki for FAQ
-"NOTE: comments after Bundle command are not allowed..
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+"
+
+
+
+" YCM
+  if !exists('g:ycm_semantic_triggers')
+    let g:ycm_semantic_triggers = {}
+  endif
+  let g:ycm_semantic_triggers.tex = [
+        \ 're!\\[A-Za-z]*cite[A-Za-z]*(\[[^]]*\]){0,2}{[^}]*',
+        \ 're!\\[A-Za-z]*ref({[^}]*|range{([^,{}]*(}{)?))',
+        \ 're!\\hyperref\[[^]]*',
+        \ 're!\\includegraphics\*?(\[[^]]*\]){0,2}{[^}]*',
+        \ 're!\\(include(only)?|input){[^}]*',
+        \ 're!\\\a*(gls|Gls|GLS)(pl)?\a*(\s*\[[^]]*\]){0,2}\s*\{[^}]*',
+        \ 're!\\includepdf(\s*\[[^]]*\])?\s*\{[^}]*',
+        \ 're!\\includestandalone(\s*\[[^]]*\])?\s*\{[^}]*',
+        \ 're!\\usepackage(\s*\[[^]]*\])?\s*\{[^}]*',
+        \ 're!\\documentclass(\s*\[[^]]*\])?\s*\{[^}]*',
+        \ 're!\\[A-Za-z]*',
+        \ ]
