@@ -1,4 +1,5 @@
 #!/bin/bash
+#
 
 BACKL=/sys/class/backlight/radeon_bl0/brightness
 if [$(cat $BACKL) -lt 50]
